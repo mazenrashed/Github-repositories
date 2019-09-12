@@ -1,4 +1,4 @@
-package com.mazenrashed.github
+package com.mazenrashed.github.ui
 
 import androidx.lifecycle.ViewModel
 import com.jakewharton.rxrelay2.BehaviorRelay

@@ -5,6 +5,7 @@ import com.mazen.wash.data.local.database.Database
 import com.mazenrashed.github.data.DataManager
 import com.mazenrashed.github.data.network.ServiceGenerator
 import com.mazenrashed.github.data.reposotories.RepoRepository
+import com.mazenrashed.github.ui.RepositoriesViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

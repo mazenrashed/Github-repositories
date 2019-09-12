@@ -1,4 +1,4 @@
-package com.mazenrashed.github
+package com.mazenrashed.github.ui
 
 import android.app.SearchManager
 import android.content.Context
@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.api.load
 import coil.transform.CircleCropTransformation
+import com.mazenrashed.github.R
 import com.mazenrashed.github.data.model.Repo
 import com.mazenrashed.github.databinding.ActivityMainBinding
 import com.mazenrashed.github.databinding.RepoItemBinding
@@ -34,7 +35,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_main
+        )
 
         initRecyclerView()
         initRefreshLayout()
