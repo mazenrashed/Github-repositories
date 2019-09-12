@@ -1,4 +1,4 @@
-package com.mazenrashed.github
+package com.mazenrashed.github.di
 
 import androidx.room.Room
 import com.mazen.wash.data.local.database.Database
