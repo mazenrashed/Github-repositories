@@ -21,7 +21,9 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
+import org.koin.dsl.koinApplication
 import org.koin.test.KoinTest
+import org.koin.test.check.checkModules
 import org.koin.test.inject
 import org.koin.test.mock.declareMock
 import org.mockito.ArgumentMatchers
@@ -41,6 +43,11 @@ class RepositoryViewModelUnitTest : KoinTest {
     @Before
     fun setupRXTest() {
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
+    }
+
+    @Test
+    fun `checking modules`() {
+        koinApplication { modules(testAppModule) }.checkModules()
     }
 
     @Test
