@@ -52,6 +52,8 @@ class RepositoriesViewModel : ViewModel(), KoinComponent {
         isLoading.accept(false)
         if (t is ConnectException || t is UnknownHostException) {
             toastMessages.accept("Check connection")
+        }else{
+            toastMessages.accept("Something wrong")
         }
     }
 
