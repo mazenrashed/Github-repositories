@@ -82,7 +82,7 @@ class RepositoryViewModelUnitTest : KoinTest {
         viewModel.loadRepos()
 
         verify(dataManager, times(2)).getRepositories()
-        verify(reposObserver, times(3)).onNext(ArgumentMatchers.anyList<Repo>() as ArrayList<Repo>)
+        verify(reposObserver, times(2)).onNext(ArgumentMatchers.anyList<Repo>() as ArrayList<Repo>)
         verify(toastMessagesObserver, Mockito.never()).onNext(ArgumentMatchers.anyString())
         verify(loadingStateObserver, Mockito.never()).onError(ArgumentMatchers.any(Throwable::class.java))
         verify(loadingStateObserver, Mockito.never()).onComplete()

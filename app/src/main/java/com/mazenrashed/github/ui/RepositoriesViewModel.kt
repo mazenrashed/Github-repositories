@@ -5,6 +5,7 @@ import com.jakewharton.rxrelay2.BehaviorRelay
 import com.jakewharton.rxrelay2.PublishRelay
 import com.mazenrashed.github.data.DataManager
 import com.mazenrashed.github.data.model.Repo
+import com.mazenrashed.github.rx.AppSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
@@ -17,6 +18,7 @@ import java.net.UnknownHostException
 class RepositoriesViewModel : ViewModel(), KoinComponent {
 
     private val dataManager: DataManager by inject()
+    private val schedulers : AppSchedulers by inject()
     private val bag = CompositeDisposable()
 
     val repositories = BehaviorRelay.createDefault(ArrayList<Repo>())
@@ -30,7 +32,7 @@ class RepositoriesViewModel : ViewModel(), KoinComponent {
     fun loadRepos() {
         dataManager
             .getRepositories()
-            .subscribeOn(Schedulers.io())
+            .subscribeOn(schedulers.getIoScheduler())
             .doOnSubscribe(::onLoadSubscribe)
             .doOnNext(::onLoadSuccess)
             .doOnComplete(::onLoadCompleted)
